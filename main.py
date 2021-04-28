@@ -14,14 +14,14 @@ screen = Screen()
 screen.bgpic(US_STATE_MAP_FILE_PATH)
 
 states_not_guessed = load_states_from_file()
-correct_guesses = DataFrame()
+correct_guesses = []
 start_number_of_states = len(states_not_guessed)
 while len(states_not_guessed) > 0:
     
-    guess = screen.textinput(f'{len(states_not_guessed)}/{start_number_of_states} left', f'Guess a state: ').capitalize()
+    guess = screen.textinput(f'{len(correct_guesses)}/{start_number_of_states} States Correct', f"What's another state name?: ").capitalize()
     state_guessed = states_not_guessed[states_not_guessed['state'] == guess]
     if not state_guessed.empty:
         states_not_guessed = states_not_guessed[states_not_guessed['state'] != guess]
-        correct_guesses.add(state_guessed)
+        correct_guesses.append(state_guessed)
         StateDisplay(state_guessed)
 screen.exitonclick()
