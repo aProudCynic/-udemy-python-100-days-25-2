@@ -15,7 +15,7 @@ states_not_guessed = load_states_from_file()
 start_number_of_states = len(states_not_guessed)
 while len(states_not_guessed) > 0:
     
-    guess = screen.textinput(f'{len(states_not_guessed)}/{start_number_of_states} left', f'Guess a state: ')
+    guess = screen.textinput(f'{len(states_not_guessed)}/{start_number_of_states} left', f'Guess a state: ').capitalize()
     state_guessed = states_not_guessed[states_not_guessed['state'] == guess]
     if not state_guessed.empty:
         states_not_guessed = states_not_guessed[states_not_guessed['state'] != guess]
