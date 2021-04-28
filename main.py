@@ -18,9 +18,6 @@ while len(states_not_guessed) > 0:
     guess = screen.textinput(f'{len(states_not_guessed)}/{start_number_of_states} left', f'Guess a state: ')
     state_guessed = states_not_guessed[states_not_guessed['state'] == guess]
     if not state_guessed.empty:
-        print(f'{guess} is correct')
         states_not_guessed = states_not_guessed[states_not_guessed['state'] != guess]
         StateDisplay(state_guessed)
-    else:
-        print(f'{guess} is incorrect, try again')
 screen.exitonclick()
