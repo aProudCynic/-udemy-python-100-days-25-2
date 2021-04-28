@@ -1,5 +1,6 @@
 import pandas
 from turtle import Screen
+from state_display import StateDisplay
 
 STATES_FILE_PATH = '50_states.csv'
 US_STATE_MAP_FILE_PATH = 'blank_states_img.gif'
@@ -17,6 +18,7 @@ while len(states_not_guessed) > 0:
     if not state_guessed.empty:
         print(f'{guess} is correct')
         states_not_guessed = states_not_guessed[states_not_guessed['state'] != guess]
+        StateDisplay(state_guessed)
     else:
         print(f'{guess} is incorrect, try again')
 screen.exitonclick()
